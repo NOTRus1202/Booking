@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/knockout-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../style/style.css" />
+
+
+    
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+
+        #padd{
+            padding-top: -30;
+        }
+        #dradd{
+            padding-top: -20;
+        }
+      </style>
+  
+</head>
+  <body">
+
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-1 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+          <span class="fs-4">BOOK</span>
+        </a>
+  
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-4 py-2 text-dark text-decoration-none" href="../index.html">HOME</a>
+          <a class="me-4 py-2 text-dark text-decoration-none" href="booking.html">BOOKING</a>
+          <a class="me-4 py-2 text-dark text-decoration-none" href="viewBookings.html">VIEW BOOKINGS</a>
+          <a class="me-4 py-2 text-dark text-decoration-none" href="#">SERVICE</a>
+          <a class="me-4 py-2 text-dark text-decoration-none" href="#">CONTACT</a>
+        </nav>
+      </div>
+    </header>
+    
+    <main style="background-color: #ffffff;">
+      <div class="container-fluid" >
+        <div class="col-lg-8 offset-2">
+          <div id="form" class="p-5">
+            <div class="row">
+              <div class="col-lg-12 row g-3">
+                <h3 class="text-center"> Booking Form</h3>
+                <p class="text-center lead">Book the location by filling out the information form and pin the desired location on the maps</p>
+                <h4 class="mb-3 text-primary">Primary Information <span class="badge bg-primary rounded-pill">1</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg">
+                <label for="firstName" class="form-label">First name<span style="color: red;">*</span></label>
+                <input type="text" class="form-control"  id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Please input a valid name.
+                </div>
+              </div>
+              <div class="col-lg">
+                <label for="lastName" class="form-label">Last name<span style="color: red;">*</span></label>
+                <input type="text" class="form-control "  id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Please input a valid name.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg">
+                <label for="telephone" class="form-label" styles="-webkit-appearance: none;
+                margin: 0;">Telephone<span style="color: red;">*</span></label>
+                <input type="number" min="0" class="form-control" id="telephone" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Please input a valid number.
+                </div>
+              </div>
+              <div class="col-lg">
+                <label for="email" class="form-label">Email<span style="color: red;">*</span></label>
+                <input type="text" class="form-control " id="email" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Please input a valid Email.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg">
+                <label for="service" class="form-label">Service Type<span style="color: red;">*</span></label>
+                <select class="form-select" id="service" required="">
+                  <option value="">Choose...</option>
+                  <option value="Car">Car</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Mini Coach">Mini Coach</option>
+                  <option value="Bus">Bus</option>
+                </select>
+              </div>
+              <div class="col-lg">
+                <label for="passenger" class="form-label">Number of Passengers<span style="color: red;">*</span></label>
+                <input type="number" min="0"  class="form-control" id="passenger" required>
+                <div class="invalid-feedback">
+                  Please input a valid number.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg">
+                <label for="companyName" class="form-label">Company Name<span style="color: red;">*</span></label>
+                <input type="text"  class="form-control" id="companyName" placeholder="" value="">
+              </div>
+              <div class="col-lg">
+                <label for="companyaddress" class="form-label">Company Address</label>
+              <input type="text" class="form-control" id="companyAdd" placeholder="" value="">
+              </div>
+            </div>
+            <hr class="mt-4">
+            <div class="row">
+              <div class="col-lg-12 row">
+                <h4 class="mb-3 text-primary">Pin Location <span class="badge bg-primary rounded-pill">2</span></h4>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-10 offset-1 ">
+                <label for="pickUpAddress" class="form-label">Pick-up Address<span style="color: red;">*</span></label>
+                <div class="input-group">
+                  <input type="text" class="form-control"  id="pickUpAddress" placeholder="Pick-up Address" value="" required autocomplete="off">
+                  <div class="input-group-append">                 
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#pickUpModal"><i class="bi bi-pin-map"></i> </button>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10 offset-1 pt-3">
+                  <label for="dropOffAddress" class="form-label">Drop-off Address<span style="color: red;">*</span></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control " id="dropOffAddress" placeholder="Drop-off Address" value="" required autocomplete="off">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dropOffModal"><i class="bi bi-pin-map"></i> </button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="row mt-5">
+                  <div id="map"></div>
+                </div>
+                <div class="row mt-5">
+                  <div class=" col-4 offset-5 mt-3">
+                    <button id="submitButton" class="w-60 btn btn-primary btn-lg" >Submit</button>
+                  </div>
+                </div>
+                <div class="modal" id="dropOffModal" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Use my location</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Do you want to use your location for the drop off location?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="findMeDropOff()" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="pickUpModal" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Use my location</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Do you want to use your location for the pick up location?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="findMePickUp()" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="error" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Fill up required information</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Please fill up all the required information for you to book.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="successModal" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Success</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>You have successfully booked. Here is your Booking ID:</p>
+                        <h3 id="bookingId"></h3>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="failModal" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Failed to Book</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Failed to book. Please try again later.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="my-3 pt-3 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017–2021 Company Name</p>
+      <ul class="list-inline">
+         <li class="list-inline-item"><a href="#">Privacy</a></li>
+         <li class="list-inline-item"><a href="#">Terms</a></li>
+         <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+   </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDocFDod0zHdysUplTH7V33K6a6Bx5yRh0&libraries=places&callback=initMap&v=weekly"
+        defer></script>
+        <script src="../js/booking.js"></script>
+        <script type="module" src="../js/bookingfirebase.js"></script>
+</body>
+    
+
+</html>
